@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<htmrll>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width,initial-scale=1.0">
+        <title>Asyncronyous Programming</title>
+
+    </head>
+    <body>
+        <input type="text"id="myin">
+        <button id="mybtn">fetch it</button>
+        <div id= 'infor'>
+        </div>
+        <script>
+            document.getElementById("mybtn").onclick =()=>{
+                //Here we access the input
+                let p = document.getElementById("myin").value;
+                console.log(p);
+                //the above is the api
+                fetch(`http://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&APPID=e48fcda13a57e3fe1b70dcfc6b618d54`)
+                .then(data =>{
+                    return data.json();
+                })
+                 .then(data2=>{
+                     /**
+                     the above console is used for testing
+                     */
+                     console.log(data2 )
+                     console.log(data2.sys.country )
+                //     console.log(data2.main.temp )
+                //     console.log(data2.weather[0].description ) 
+                    
+            document.getElementById('infor').innerHTML=`
+                
+            <ul>
+                <li>City:${data2.name}</li>
+                <li>Country
+                :${data2.sys.country}</li>
+                <li>temp:${data2.main.temp}</li>
+                <li>description:${data2.weather[0].description}</li>
+            </ul>
+                `
+                }) 
+                       
+            }
+        </script>
+    </body>
+</htmrll>

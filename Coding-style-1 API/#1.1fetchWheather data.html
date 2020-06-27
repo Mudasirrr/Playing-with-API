@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<htmrll>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width,initial-scale=1.0">
+        <title>Asyncronyous Programming</title>
+
+    </head>
+    <body>
+        <button id="mybtn">fetch it</button>
+        <br>Steps: <br/>go to website:https://openweathermap.org//  </br> the sign up, click on api key, copy it and ......<p>
+        <script>
+
+            document.getElementById("mybtn").onclick =()=>{
+                //The fetch is a built in promise
+                fetch("http://api.openweathermap.org/data/2.5/weather?q=Taxila&APPID=e48fcda13a57e3fe1b70dcfc6b618d54")
+                .then(data =>{
+                    return data.json();
+                })
+                .then(data2=>{
+                    console.log(data2)
+                }) 
+                       
+            }
+        </script>
+    </body>
+</htmrll>

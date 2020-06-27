@@ -1,0 +1,23 @@
+Ajax stands for : Asyncronyous JavaScript
+
+In this portion we'll cover Promises, await, Async
+API: all those work that make our work easy
+Resp Api: client to server interation throug http request is called 
+ 
+ Promoise: 
+    An Asyncronyous process/code.
+    it do promise with us that I'll give you ,your required data but after 2 sec , and the time is not fixed , may be 3 or 1 sec
+    Example"
+
+    {
+        
+            document.getElementById("mybtn").onclick =()=>{
+                var x = fetch("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=e48fcda13a57e3fe1b70dcfc6b618d54")
+                console.log(x);        
+            }
+            OutPut:
+                >Promise
+
+    }
+    so for this we use fetch().then(data=>{}) 
+     axios is alternative to fetch

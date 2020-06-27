@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<htmrll>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width,initial-scale=1.0">
+        <title>Asyncronyous Programming</title>
+
+    </head>
+    <body>
+        <h1>Fetch Api</h1>
+        <form id = "myForm">
+            <input type="text"name="username">
+            <input type="password "name="passwd">
+            <button type="submit">Submit it</button>
+        </form>
+        
+        <button id="mybtn">Post it</button>
+        <!-- <script>
+             var data = {
+                 name:"Mudasir",
+                 status:"programmer"
+             }
+             document.getElementById('mybtn').onclick=()=>{
+                    
+                const url = "http://localhost:5000/sent-data"; 
+                fetch(url,{
+                    method:"post",
+                    body:json.stringify(data),
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                }).then(res=>res.json())
+                .then(res2 => console.log(res2));
+            
+
+             }
+        </script>-->
+        <script>
+            // var data = {
+            //     name:"Mudasir",
+            //     status:"programmer"
+            // }
+            document.getElementById('myForm').onsubmit=(e)=>{
+               e.preventDefault();
+
+               const url = "http://localhost:5000/sent-data"; 
+               const data = new URLSearchParams();//
+
+               console.log(e.target)
+                //
+               for(const pair of new FormData(e.target)) {
+                   //console.log(pair)
+                   //console.log(pair[1])
+                   data.append(pair[0],pair[1])
+                }
+
+               fetch(url,{
+                   method:"post",
+                   body:data,
+               }).then(res=>res.json())
+               .then(res2 => console.log(res2));
+           
+
+            }
+       </script>
+   
+    </body> 
+</htmrll>

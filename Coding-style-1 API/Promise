@@ -1,0 +1,9 @@
+function a(){
+
+}
+//the above is the simple function
+when we use async key word then it become asyncronous function
+    i.e
+    async function s(){
+        
+    }
